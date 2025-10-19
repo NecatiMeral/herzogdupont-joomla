@@ -89,6 +89,13 @@ if ($has_image) {
     ]);
 
     // Image 1
+    $image_1_link_container = $this->el($element['lightbox'] ? 'a' : 'div', [
+
+        'href' => $element['lightbox'] ? $props['image_1'] ?: $props['video_1'] : null,
+        'data-type' => $element['lightbox'] ? ($props['video_1'] && !$props['image_1'] ? 'video' : 'image') : null,
+        'data-caption' => $element['lightbox'] ? $props['title'] : null,
+
+    ]);
     $image_1 = $this->el('image', [
 
         'class' => [
@@ -282,6 +289,7 @@ if ($has_image) {
                         <?= $kenburns($element) ?>
                         <?php endif ?>
 
+                            <?= $image_1_link_container($element, $image_1) ?>
                             <?= $props['image_1'] ? $image_1() : '' ?>
                             <?= $props['video_1'] && !$props['image_1'] ? $video_1([], '') : '' ?>
 

@@ -87,6 +87,12 @@ $cell_content = $this->el('div', [
         'uk-flex {@panel_expand}',
     ],
 
+    'uk-lightbox' => [
+        'toggle: a[data-type];' => $element['lightbox'],
+        'animation: {lightbox_animation};',
+        'bg-close: false;' => !$element['lightbox_bg_close']
+    ],
+
 ]);
 
 // Link
