@@ -284,6 +284,12 @@ if ($has_image) {
     ]);
 
     // Image 4
+    $image_4_link_container = $this->el($element['lightbox'] ? 'a' : 'div', [
+
+        'href' => $element['lightbox'] ? $props['image_4'] ?: $props['video_4'] : null,
+        'data-type' => $element['lightbox'] ? ($props['video_4'] && !$props['image_4'] ? 'video' : 'image') : null,
+        'data-caption' => $element['lightbox'] ? $props['title'] : null,
+    ]);
     $image_4 = $this->el('image', [
 
         'class' => [
@@ -438,8 +444,8 @@ if ($has_image) {
                         <?= $kenburns($element) ?>
                         <?php endif ?>
 
-                            <?= $props['image_4'] ? $image_4() : '' ?>
-                            <?= $props['video_4'] && !$props['image_4'] ? $video_4([], '') : '' ?>
+                            <?= $props['image_4'] ? $image_4_link_container($element, $image_4) : '' ?>
+                            <?= $props['video_4'] && !$props['image_4'] ? $video_4_link_container($element, $video_4([], '')) : '' ?>
 
                         <?php if ($element['slideshow_kenburns']) : ?>
                         </div>
