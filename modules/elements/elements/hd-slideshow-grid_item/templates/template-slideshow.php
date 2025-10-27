@@ -44,6 +44,12 @@ if ($has_image) {
             'uk-box-shadow-{image_box_shadow} {@!panel_style}',
         ],
 
+        'uk-lightbox' => $this->expr([
+            'animation: fade;',
+            'a[data-type];',
+            'delay-controls: 0;',
+        ], $element) ?: true,
+
     ]);
 
     // Extra effect for pull/push
@@ -94,7 +100,6 @@ if ($has_image) {
         'href' => $element['lightbox'] ? $props['image_1'] ?: $props['video_1'] : null,
         'data-type' => $element['lightbox'] ? ($props['video_1'] && !$props['image_1'] ? 'video' : 'image') : null,
         'data-caption' => $element['lightbox'] ? $props['title'] : null,
-
     ]);
     $image_1 = $this->el('image', [
 
@@ -153,6 +158,12 @@ if ($has_image) {
     ]);
 
     // Image 2
+    $image_2_link_container = $this->el($element['lightbox'] ? 'a' : 'div', [
+
+        'href' => $element['lightbox'] ? $props['image_2'] ?: $props['video_2'] : null,
+        'data-type' => $element['lightbox'] ? ($props['video_2'] && !$props['image_2'] ? 'video' : 'image') : null,
+        'data-caption' => $element['lightbox'] ? $props['title'] : null,
+    ]);
     $image_2 = $this->el('image', [
 
         'class' => [
@@ -210,6 +221,12 @@ if ($has_image) {
     ]);
 
     // Image 3
+    $image_3_link_container = $this->el($element['lightbox'] ? 'a' : 'div', [
+
+        'href' => $element['lightbox'] ? $props['image_3'] ?: $props['video_3'] : null,
+        'data-type' => $element['lightbox'] ? ($props['video_3'] && !$props['image_3'] ? 'video' : 'image') : null,
+        'data-caption' => $element['lightbox'] ? $props['title'] : null,
+    ]);
     $image_3 = $this->el('image', [
 
         'class' => [
@@ -289,9 +306,8 @@ if ($has_image) {
                         <?= $kenburns($element) ?>
                         <?php endif ?>
 
-                            <?= $image_1_link_container($element, $image_1) ?>
-                            <?= $props['image_1'] ? $image_1() : '' ?>
-                            <?= $props['video_1'] && !$props['image_1'] ? $video_1([], '') : '' ?>
+                            <?= $props['image_1'] ? $image_1_link_container($element, $image_1) : '' ?>
+                            <?= $props['video_1'] && !$props['image_1'] ? $image_1_link_container($element, $video_1([], '')) : '' ?>
 
                         <?php if ($element['slideshow_kenburns']) : ?>
                         </div>
@@ -315,8 +331,8 @@ if ($has_image) {
                         <?= $kenburns($element) ?>
                         <?php endif ?>
 
-                            <?= $props['image_2'] ? $image_2() : '' ?>
-                            <?= $props['video_2'] && !$props['image_2'] ? $video_2([], '') : '' ?>
+                            <?= $props['image_2'] ? $image_2_link_container($element, $image_2) : '' ?>
+                            <?= $props['video_2'] && !$props['image_2'] ? $image_2_link_container($element, $video_2([], '')) : '' ?>
 
                         <?php if ($element['slideshow_kenburns']) : ?>
                         </div>
@@ -340,8 +356,8 @@ if ($has_image) {
                         <?= $kenburns($element) ?>
                         <?php endif ?>
 
-                            <?= $props['image_3'] ? $image_3() : '' ?>
-                            <?= $props['video_3'] && !$props['image_3'] ? $video_3([], '') : '' ?>
+                            <?= $props['image_3'] ? $image_3_link_container($element, $image_3) : '' ?>
+                            <?= $props['video_3'] && !$props['image_3'] ? $video_3_link_container($element, $video_3([], '')) : '' ?>
 
                         <?php if ($element['slideshow_kenburns']) : ?>
                         </div>
