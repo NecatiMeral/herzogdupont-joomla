@@ -1,6 +1,6 @@
 <?php
 
-/* Herzog Dupont for YOOtheme Pro Copyright (C) 2020-2024 Thomas Weidlich GNU GPL v3 */
+/* Herzog Dupont for YOOtheme Pro Copyright (C) 2020-2026 Thomas Weidlich GNU GPL v3 */
 
 namespace YOOtheme;
 
@@ -16,7 +16,8 @@ return [
             $metadata->set('script:builder-hd-image-comparison', ['src' => Path::get('./js/hd-image-comparison.js'), 'defer' => true]);
 
             // Don't render element if content fields are empty
-            return ($node->props['image_before'] || $node->props['image_after']);
+            return $node->props['image_before'] ||
+                $node->props['image_after'];
         },
     ],
 

@@ -1,6 +1,6 @@
 <?php
 
-/* Herzog Dupont for YOOtheme Pro Copyright (C) 2019-2024 Thomas Weidlich GNU GPL v3 */
+/* Herzog Dupont for YOOtheme Pro Copyright (C) 2019-2026 Thomas Weidlich GNU GPL v3 */
 
 namespace YOOtheme;
 
@@ -16,7 +16,7 @@ return [
             $metadata->set('script:builder-hd-lottie', ['src' => Path::get('./js/hd-lottie.js'), 'defer' => true]);
 
             // Don't render element if content fields are empty
-            return (bool) strlen($node->props['path']);
+            return $node->props['path'] != '';
         },
     ],
 ];

@@ -1,5 +1,24 @@
 # Changelog
 
+## 1.9.3
+
+### Changed
+
+- raised minimum PHP version to 8.2.0
+- migrated legacy `JFactory` and `JLog` classes to modern `Joomla\CMS` namespaces
+
+## 1.9.2
+
+### Fixed
+
+- render conditions across all elements
+
+## 1.9.1
+
+### Fixed
+
+- render conditions in flipcard element
+
 ## 1.9.0
 
 ### Added
@@ -14,11 +33,15 @@
 ### Changed
 
 - replace UIkit `isVisible` function by `IntersectionObserver` in counter and lottie element
-- raised minimum YOOtheme Pro version to 4.3.0
+- YOOtheme Pro 5.0.0 compatibility
+- raised minimum YOOtheme Pro version to 5.0.0
+- raised minimum Joomla version to 5.0.0
+- raised minimum PHP version to 8.1.0
 
 ### Fixed
 
 - automatically recompile style
+- item margin top not applied in timeline element
 
 ## 1.8.0
 

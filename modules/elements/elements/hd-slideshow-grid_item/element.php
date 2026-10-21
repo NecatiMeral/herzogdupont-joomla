@@ -1,6 +1,6 @@
 <?php
 
-/* Herzog Dupont for YOOtheme Pro Copyright (C) 2016-2024 YOOtheme GmbH, 2021-2024 Thomas Weidlich GNU GPL v3 */
+/* Herzog Dupont for YOOtheme Pro Copyright (C) 2016-2026 YOOtheme GmbH, 2021-2026 Thomas Weidlich GNU GPL v3 */
 
 namespace YOOtheme;
 
@@ -28,9 +28,9 @@ return [
             }
 
             // Don't render element if content fields are empty
-            return Str::length($node->props['title']) ||
-                Str::length($node->props['meta']) ||
-                Str::length($node->props['content']) ||
+            return $node->props['title'] != '' ||
+                $node->props['meta'] != '' ||
+                $node->props['content'] != '' ||
                 $node->props['image_1'] ||
                 $node->props['video_1'] ||
                 $node->props['image_2'] ||

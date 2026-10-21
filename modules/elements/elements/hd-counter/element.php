@@ -1,6 +1,6 @@
 <?php
 
-/* Herzog Dupont for YOOtheme Pro Copyright (C) 2019-2024 Thomas Weidlich GNU GPL v3 */
+/* Herzog Dupont for YOOtheme Pro Copyright (C) 2019-2026 Thomas Weidlich GNU GPL v3 */
 
 namespace YOOtheme;
 
@@ -16,7 +16,10 @@ return [
             $metadata->set('script:builder-hd-counter', ['src' => Path::get('./js/hd-counter.js'), 'defer' => true]);
 
             // Don't render element if content fields are empty
-            return Str::length($node->props['text']) || $node->props['number'] || ($node->props['percentage'] && $node->props['duration']);
+            return $node->props['text'] != '' ||
+                $node->props['number']  ||
+                ($node->props['percentage'] &&
+                    $node->props['duration']);
         },
     ],
 
